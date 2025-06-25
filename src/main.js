@@ -32,7 +32,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnUp = document.getElementById("increaseScore");
     const btnDown = document.getElementById("decreaseScore");
 
-    // Llenar el select con los nombres
     if (select) {
         Object.entries(itemData).forEach(([key, item]) => {
             const option = document.createElement('option');
@@ -57,10 +56,10 @@ document.addEventListener('DOMContentLoaded', () => {
             mostrarDatosItem(e.target.value);
         });
     }
-    function cambiarPuntaje(delta) {
+    function cambiarPuntaje(numero) {
         const key = select.value;
         if (!itemData[key]) return;
-        itemData[key].score += delta;
+        itemData[key].score += numero;
         if (score) score.value = itemData[key].score;
     }
     if (btnUp) btnUp.addEventListener('click', () => cambiarPuntaje(1));
